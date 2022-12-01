@@ -1,0 +1,51 @@
+<h3>INPUT:</h3>
+
+<form *ngIf="formReady === true">
+  <div class="form-group">
+    <label for="species">Region: </label>
+    <select
+      class="form-control"
+      id="species"
+      (change)="onChange($event.target.value)"
+      [(ngModel)]="model.regions"
+      name="f_species"
+    >
+      <option *ngFor="let region of regions" [value]="region">
+        {{ region }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="name">Province: </label>
+    <select
+      class="form-control"
+      id="name"
+      [(ngModel)]="model.province"
+      name="f_name"
+    >
+      <option *ngFor="let name of appropriateNames" [value]="name.province">
+        {{ name.province }}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="name">city/municipality: </label>
+    <select
+      class="form-control"
+      id="color"
+      [(ngModel)]="model.municpalityCity"
+      name="f_name"
+    >
+      <option
+        *ngFor="let municpalityCity of appropriateNames"
+        [value]="municpalityCity"
+      >
+        {{ municpalityCity.municpalityCity }}
+      </option>
+    </select>
+  </div>
+</form>
+
+<h3>OUTPUT:</h3>
+<pre>{{ model.species }}, {{ model.name }} </pre>
